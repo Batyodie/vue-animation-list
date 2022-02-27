@@ -7,6 +7,7 @@ import eslintPlugin from '@nabla/vite-plugin-eslint';
 import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import StylelintPlugin from 'vite-plugin-stylelint';
 import checker from 'vite-plugin-checker';
+import VueTypeImports from 'vite-plugin-vue-type-imports';
 
 export default defineConfig({
   plugins: [
@@ -28,6 +29,7 @@ export default defineConfig({
         enabled: true,
       },
     }),
+    VueTypeImports(),
     eslintPlugin(),
     StylelintPlugin(),
     checker({

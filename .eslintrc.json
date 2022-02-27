@@ -1,49 +1,43 @@
 {
-    "plugins": [
-        "vue"
-    ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:vue/recommended",
-        "./.eslintrc-auto-import.json",
-        "prettier",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "vue-eslint-parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "parser": "@typescript-eslint/parser",
-            "ecmaVersion": 7,
-            "sourceType": "module"
-        }
-    },
-    "rules": {
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "vue/multiline-html-element-content-newline": ["error", {
-            "ignoreWhenEmpty": true,
-            "allowEmptyLines": false
-        }],
-        "vue/html-indent": "off",
-        "vue/max-attributes-per-line": "off",
-        "vue/html-self-closing": "off",
-        "vue/require-default-prop": "off",
-        "no-console": "off",
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error"]
-    },
-    "globals": {
-        "google": true
+  "plugins": ["vue"],
+  "extends": [
+    "plugin:vue/recommended",
+    "./.eslintrc-auto-import.json",
+    "plugin:@typescript-eslint/recommended",
+    "@vue/eslint-config-typescript"
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "parser": "@typescript-eslint/parser",
+      "ecmaVersion": 7,
+      "sourceType": "module"
     }
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "no-var": "error",
+    "vue/no-unused-vars": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "vue/multiline-html-element-content-newline": [
+      "error",
+      {
+        "ignoreWhenEmpty": true,
+        "allowEmptyLines": false
+      }
+    ],
+    "vue/html-indent": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/html-self-closing": "off",
+    "vue/require-default-prop": "off",
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
+  },
+  "globals": {
+    "google": true
+  }
 }

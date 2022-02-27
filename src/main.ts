@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './vue-animation-list.vue';
 import { install } from 'vue-demi';
 
 install();
