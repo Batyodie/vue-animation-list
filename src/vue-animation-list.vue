@@ -1,35 +1,128 @@
 <template>
-  <div>123</div>
+  <render class="VListAnimation" />
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue-demi';
-import { AnimatePosition } from './types/';
+import { vueAnimatePositionProps } from './props/props';
+import {
+  useDefaultAnimation,
+  useOnPatchListContent,
+} from './composable/composable';
 
- const props = defineProps({
-    delay: {
-      type: [String, Number],
-      default: 250,
-    },
-    animationDuration: { type: [Number], default: 1 },
-    tag: { type: String, default: 'div' },
-    animation: { type: String, default: 'entranceFromRight' },
-    animatePosition: {
-      type: String as PropType<AnimatePosition>,
-      default: 'fromRight',
-      validate: (prop: AnimatePosition) =>
-        ['fromTop', 'fromRight', 'fromBottom', 'fromLeft'].includes(prop),
-    },
-    staticStyles: {
-      type: Object,
-      default: () => ({
-        opacity: 0,
-        animationFillMode: 'forwards',
-      }),
-    },
-  });
+const {
+  animation,
+  defaultAnimationCollection,
+  animatePosition,
+  delay,
+  staticStyles,
+  animationDuration,
+  tag,
+} = defineProps({
+  ...vueAnimatePositionProps,
+});
 
-  console.log(props.tag);
+const { resultAnimation } = useDefaultAnimation(
+  animation,
+  defaultAnimationCollection,
+  animatePosition,
+);
 
+const defaultSlot = useSlots();
+const slotContent =
+  defaultSlot && defaultSlot.default ? defaultSlot.default() : undefined;
+
+// onMounted(() => {
+//   if (slotContent?.length) {
+//     useOnPatchListContent(slotContent, resultAnimation, {
+//       delay,
+//       staticStyles,
+//       animationDuration,
+//     });
+//   }
+// });
+
+useOnPatchListContent(slotContent, resultAnimation, {
+  delay,
+  staticStyles,
+  animationDuration,
+});
+
+const render = () => {
+  return h(tag, slotContent);
+};
 </script>
-<style lang="scss" module></style>
+<style lang="scss">
+/* stylelint-disable */
+
+.VListAnimation {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+}
+
+.entranceFromTop {
+  animation-duration: 2s;
+  animation-name: entranceFromTop;
+}
+
+@keyframes entranceFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.entranceFromBottom {
+  animation-duration: 2s;
+  animation-name: entranceFromBottom;
+}
+
+@keyframes entranceFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.entranceFromLeft {
+  animation-name: entranceFromLeft;
+  animation-duration: 1s;
+}
+
+@keyframes entranceFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.entranceFromRight {
+  animation-name: entranceFromRight;
+  animation-duration: 1s;
+}
+
+@keyframes entranceFromRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+</style>

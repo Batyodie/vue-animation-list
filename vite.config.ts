@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
-import { createVuePlugin } from 'vite-plugin-vue2';
-import ScriptSetup from 'unplugin-vue2-script-setup/vite';
+import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 import eslintPlugin from '@nabla/vite-plugin-eslint';
@@ -11,7 +10,7 @@ import VueTypeImports from 'vite-plugin-vue-type-imports';
 
 export default defineConfig({
   plugins: [
-    createVuePlugin(),
+    vue(),
     viteCommonjs(),
     {
       ...getBabelOutputPlugin({
@@ -19,9 +18,6 @@ export default defineConfig({
         plugins: ['@babel/plugin-proposal-optional-chaining'],
       }),
     },
-    ScriptSetup({
-      /* options */
-    }),
     AutoImport({
       imports: ['vue-demi'],
 
