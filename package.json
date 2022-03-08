@@ -2,7 +2,7 @@
   "name": "list-animation",
   "version": "0.0.1",
   "description": "vue component wrapper for list animation",
-  "main": "src/main.mjs",
+  "main": "src/main.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -1,9 +1,13 @@
 <template>
   <div class="foo">
-    testing
-  </div>
+    testing 123
+</div>
 </template>
 
-<script setup>
-
-</script>
+<style lang="scss">
+.foo {
+  width: 45px;
+  height: 45px;
+  background-color: green;
+}
+</style>

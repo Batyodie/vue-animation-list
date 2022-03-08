@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
-import App from './App.vue';
 import { install } from 'vue-demi';
+
+import './styles/main.scss';
+import App from './App.vue';
 
 install();
 
