@@ -4,9 +4,9 @@
 
 <script setup lang="ts">
 import {
-  useProps,
+  useVueListAnimationProps,
   useDefaultAnimation,
-  useOnPatchSlotContent,
+  usePatchVueListContent,
 } from './composable/';
 
 // props
@@ -19,7 +19,7 @@ const {
   animationDuration,
   tag,
 } = defineProps({
-  ...useProps(),
+  ...useVueListAnimationProps(),
 });
 
 const { resultAnimation } = useDefaultAnimation(
@@ -33,7 +33,7 @@ const slotContent =
   defaultSlot && defaultSlot.default ? defaultSlot.default() : [];
 
 if (slotContent?.length) {
-  useOnPatchSlotContent(slotContent, resultAnimation, {
+  usePatchVueListContent(slotContent, resultAnimation, {
     delay,
     staticStyles,
     animationDuration,

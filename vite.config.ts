@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 import eslintPlugin from '@nabla/vite-plugin-eslint';
