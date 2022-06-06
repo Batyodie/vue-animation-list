@@ -1,5 +1,5 @@
 {
-  "name": "list-animation",
+  "name": "vue-list-animation",
   "version": "0.0.1",
   "description": "vue component wrapper for list animation",
   "main": "src/main.ts",
