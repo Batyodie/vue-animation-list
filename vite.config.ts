@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
@@ -9,6 +9,10 @@ import checker from 'vite-plugin-checker';
 import VueTypeImports from 'vite-plugin-vue-type-imports';
 
 export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
   plugins: [
     vue(),
     viteCommonjs(),
