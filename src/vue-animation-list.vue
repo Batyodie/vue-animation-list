@@ -26,41 +26,39 @@ const {
   staticStyles,
   animationDuration,
   tag,
+  defaultRootCssClass,
 } = defineProps({
   delay: {
     type: Number,
-    default: 250,
+    default: DEFAULT_DELAY_COUNT,
   },
 
-  animationDuration: { type: Number, default: 1 },
+  animationDuration: { type: Number, default: DEFAULT_ANIMATION_DURATION },
 
-  tag: { type: String, default: 'div' },
+  tag: { type: String, default: DEFAULT_TAG },
 
-  animation: { type: String, default: 'entranceFromRight' },
+  animation: { type: String, default: DEFAULT_ANIMATION },
 
   animatePosition: {
     type: String as PropType<AnimatePosition>,
-    default: 'fromRight',
+    default: DEFAULT_ANIMATE_POSITION,
     validator: (prop: AnimatePosition) =>
       ['fromTop', 'fromRight', 'fromBottom', 'fromLeft'].includes(prop),
   },
 
   staticStyles: {
     type: Object,
-    default: () => ({
-      opacity: 0,
-      animationFillMode: 'forwards',
-    }),
+    default: () => DEFAULT_STATIC_STYLES,
   },
 
   defaultAnimationCollection: {
     type: Object as PropType<IDefaultAnimationCollection>,
-    default: () => ({
-      fromTop: 'entranceFromTop',
-      fromRight: 'entranceFromRight',
-      fromBottom: 'entranceFromBottom',
-      fromLeft: 'entranceFromLeft',
-    }),
+    default: () => DEFAULT_ANIMATION_COLLECTION,
+  },
+
+  defaultRootCssClass: {
+    type: String,
+    default: DEFAULT_ROOT_CSS_CLASS,
   },
 });
 
