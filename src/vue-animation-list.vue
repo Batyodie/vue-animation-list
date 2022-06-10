@@ -1,11 +1,21 @@
 <template>
-  <render class="VListAnimation" />
+  <render :class="defaultRootCssClass" />
 </template>
 
 <script setup lang="ts">
 import { PropType } from 'vue-demi';
 import { AnimatePosition, IDefaultAnimationCollection } from './types/types';
 import { useDefaultAnimation, usePatchVueListContent } from './composable/';
+import {
+  DEFAULT_ANIMATE_POSITION,
+  DEFAULT_ANIMATION,
+  DEFAULT_ANIMATION_COLLECTION,
+  DEFAULT_ANIMATION_DURATION,
+  DEFAULT_DELAY_COUNT,
+  DEFAULT_ROOT_CSS_CLASS,
+  DEFAULT_STATIC_STYLES,
+  DEFAULT_TAG,
+} from './constants/';
 
 // props
 const {
