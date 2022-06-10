@@ -15,6 +15,7 @@ specifiers:
   '@vue/composition-api': ^1.4.7
   '@vue/eslint-config-typescript': ^10.0.0
   '@vue/runtime-dom': ^3.2.31
+  '@vue/test-utils': ^2.0.0
   autoprefixer: ^10.4.2
   c8: ^7.11.3
   eslint: ^8.10.0
@@ -61,6 +62,7 @@ devDependencies:
   '@vue/composition-api': 1.4.7_vue@3.2.31
   '@vue/eslint-config-typescript': 10.0.0_6bae48b99b40de9ce3e67c9c629a2961
   '@vue/runtime-dom': 3.2.31
+  '@vue/test-utils': 2.0.0_vue@3.2.31
   autoprefixer: 10.4.2_postcss@8.4.7
   c8: 7.11.3
   eslint: 8.10.0
@@ -1739,6 +1741,14 @@ packages:
 
   /@vue/shared/3.2.31:
     resolution: {integrity: sha512-ymN2pj6zEjiKJZbrf98UM2pfDd6F2H7ksKw7NDt/ZZ1fh5Ei39X5tABugtT03ZRlWd9imccoK0hE8hpjpU7irQ==}
+    dev: true
+
+  /@vue/test-utils/2.0.0_vue@3.2.31:
+    resolution: {integrity: sha512-zL5kygNq7hONrO1CzaUGprEAklAX+pH8J1MPMCU3Rd2xtSYkZ+PmKU3oEDRg8VAGdL5lNJHzDgrud5amFPtirw==}
+    peerDependencies:
+      vue: ^3.0.1
+    dependencies:
+      vue: 3.2.31
     dev: true
 
   /abab/2.0.6:
