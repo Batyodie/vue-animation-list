@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue-demi';
 import { AnimatePosition, IDefaultAnimationCollection } from './types/types';
-import { useDefaultAnimation, usePatchVueListContent } from './composable/';
+import { useDefaultAnimation, usePatchSlotContent } from './composable/';
 import {
   DEFAULT_ANIMATE_POSITION,
   DEFAULT_ANIMATION,
@@ -62,25 +62,21 @@ const {
   },
 });
 
+const slotsContent = useSlots().default?.();
 const { resultAnimation } = useDefaultAnimation(
   animation,
   defaultAnimationCollection,
   animatePosition,
 );
-
-const defaultSlot = useSlots();
-const slotContent =
-  defaultSlot && defaultSlot.default ? defaultSlot.default() : [];
-
-if (slotContent?.length) {
-  usePatchVueListContent(slotContent, resultAnimation, {
+const resultSlotContent = usePatchSlotContent(
+  slotsContent || [],
+  resultAnimation,
+  {
     delay,
     staticStyles,
     animationDuration,
-  });
-}
+  },
+);
 
-const render = () => {
-  return h(tag, slotContent);
-};
+const render = h(tag, resultSlotContent);
 </script>

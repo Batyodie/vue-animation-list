@@ -1,7 +1,7 @@
-import {usePatchVueListContent} from './path-vue-list-content';
+import { usePatchSlotContent } from './path-vue-list-content';
 import { useDefaultAnimation } from './default-animation';
 
 export {
-  usePatchVueListContent,
+  usePatchSlotContent,
   useDefaultAnimation,
 };
